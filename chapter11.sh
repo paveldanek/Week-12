@@ -5,7 +5,7 @@ TMPFILE2=$(mktemp /tmp/im2.XXXXXX)
 trap 'rm -f $TMPFILE1 $TMPFILE2; echo -e "\n\nCIAO!"; exit' INT ERR
 # Trap applies, if script ended under circumstances: 	INT(erruption <CTRL>+<C>)
 # 							ERR(or, where program exits)
-# 							EXIT (where program ends)
+# 							EXIT (where program ends - NOT used here)
 
 case $# in
     0)	echo "$0: Please give your name as an argument when running this script.";
@@ -22,7 +22,7 @@ else echo "Good evening, $first $last!"
 fi
 sleep 2
 # next, using an example from the book
-echo -e "\nLet's se if any device interrupts happen in the next 2 seconds, $first:"
+echo -e "\nLet's see if any 'device interrupts' happen in the next 2 seconds, $first:"
 cat /proc/interrupts > $TMPFILE1
 sleep 2
 cat /proc/interrupts > $TMPFILE2
