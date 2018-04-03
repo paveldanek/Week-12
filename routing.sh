@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#The third line of the "ifconfig -s" command is going to start
-#With the interface name of the most used / most important network.
-#We need to capture that to make changes to it.
+# The third line of the "ifconfig -s" command is going to start
+# with the interface name of the most used / most important network.
+# We need to capture that to make changes to it.
 v1=$(ifconfig -s | awk '{print $1}') #The beginnings of all lines
 v2=$(echo $v1 | awk '{print $3}')    #The beginning of the THIRD line!
 echo ""
